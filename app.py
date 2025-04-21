@@ -27,7 +27,7 @@ def index():
             process_excel_file(input_path, REFERENCE_FILE, output_path)
             return send_file(output_path, as_attachment=True, download_name="fichier_traite.xlsx")
         except Exception as e:
-            return f"Erreur lors du traitement du fichier : {e}", 500
+            return f"<h2>Erreur lors du traitement du fichier :</h2><p>{e}</p>", 400
         finally:
             os.remove(input_path)
     
