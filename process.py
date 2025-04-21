@@ -5,8 +5,8 @@ from openpyxl.utils.dataframe import dataframe_to_rows
 from openpyxl.styles import Alignment
 
 def process_excel_file(input_path, reference_file, output_path):
-    # Lecture du fichier source
-    df = pd.read_excel(input_path)
+    # Lecture du fichier source avec moteur xlrd pour les .xls
+    df = pd.read_excel(input_path, engine='xlrd')
 
     # Nettoyage et traitement
     df.columns = [col.strip() for col in df.columns]
